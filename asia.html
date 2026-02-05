@@ -3,158 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azië - Jerome's Flight Club</title>
+    <title>Asia - Jerome's Flight Club</title>
     <style>
-        :root {
-            --bg-dark: #050a14;
-            --card-bg: #0f172a;
-            --accent-blue: #3b82f6;
-            --text-gray: #94a3b8;
-            --success-green: #22c55e;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-dark);
-            color: white;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #0a1221;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1e2a3a;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--accent-blue);
-            font-weight: 800;
-        }
-
-        nav a {
-            color: var(--text-gray);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-            text-transform: uppercase;
-        }
-
-        nav a:hover, nav a.active {
-            color: white;
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, #0a1221, var(--bg-dark));
-        }
-
-        .hero-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-section p {
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto 60px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #1e293b;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-tag {
-            background: var(--success-green);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            display: inline-block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-        }
-
-        .card .airline {
-            color: var(--accent-blue);
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .btn-unlock {
-            display: block;
-            text-align: center;
-            background: var(--accent-blue);
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: background 0.3s;
-            margin-top: 10px;
-        }
-
-        .btn-unlock:hover {
-            background: #2563eb;
-        }
-
-        footer {
-            text-align: center;
-            padding
+        :root { --bg: #050a14; --card: #0f172a; --blue: #3b82f6; --gray: #94a3b8; }
+        body { font-family: sans-serif; background: var(--bg); color: white; margin: 0; }
+        header { background: #0a1221; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e2a3a; }
+        header h1 { color: var(--blue); margin: 0; font-size: 1.5rem; }
+        nav a { color: var(--gray); text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 0 20px; }
+        .card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--blue); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .tag { background: #22c55e; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+        .btn { display: block; text-align: center; background: var(--blue); color: white; text-decoration: none; padding: 10px; border-radius: 6px; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JFC.</h1>
+        <nav><a href="index.html">HOME</a><a href="europe.html">EUROPE</a><a href="asia.html" style="color:white">ASIA</a><a href="world.html">WORLD</a></nav>
+    </header>
+    <div class="container">
+        <div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400"><div class="card-body"><span class="tag">SAVE €320</span><h3>TOKYO</h3><p>KLM DIRECT</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1504214208698-ea1919a219e0?w=400"><div class="card-body"><span class="tag">SAVE €250</span><h3>BANGKOK</h3><p>THAI AIRWAYS</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400"><div class="card-body"><span class="tag">SAVE €410</span><h3>BALI</h3><p>QATAR AIRWAYS</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1525625230556-8e8b7e9ad28f?w=400"><div class="card-body"><span class="tag">SAVE €290</span><h3>SINGAPORE</h3><p>SINGAPORE AIRLINES</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=400"><div class="card-body"><span class="tag">SAVE €280</span><h3>SEOUL</h3><p>KOREAN AIR</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1528181304800-259b08bb73b5?w=400"><div class="card-body"><span class="tag">SAVE €300</span><h3>PHUKET</h3><p>EMIRATES</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400"><div class="card-body"><span class="tag">SAVE €190</span><h3>DUBAI</h3><p>EMIRATES</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1513415277900-a62401e19be4?w=400"><div class="card-body"><span class="tag">SAVE €350</span><h3>HANOI</h3><p>VIETNAM AIRLINES</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400"><div class="card-body"><span class="tag">SAVE €260</span><h3>OSAKA</h3><p>FINNAIR</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400"><div class="card-body"><span class="tag">SAVE €310</span><h3>HONG KONG</h3><p>CATHAY PACIFIC</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1470004914846-30750fd1bc9c?w=400"><div class="card-body"><span class="tag">SAVE €240</span><h3>TAIPEI</h3><p>EVA AIR</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1518509194600-62ba024401c5?w=400"><div class="card-body"><span class="tag">SAVE €370</span><h3>MANILA</h3><p>PHILIPPINE AIRLINES</p><a href="#" class="btn">UNLOCK FOR €1</a></div></div>
+    </div>
+</body>
+</html>
