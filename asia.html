@@ -1,71 +1,62 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asia Deals | JFC</title>
+    <title>Asia | JFC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <style>
-        :root { --bg: #020617; --card: #0f172a; --blue: #3b82f6; --gray: #94a3b8; --green: #22c55e; }
-        body { font-family: sans-serif; background: var(--bg); color: white; margin: 0; padding: 20px; }
-        nav { max-width: 1200px; margin: 0 auto 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
-        .logo { font-size: 2rem; font-weight: 900; color: var(--blue); font-style: italic; }
-        .nav-links a { color: var(--gray); text-decoration: none; margin-left: 20px; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card); border-radius: 1.5rem; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--blue); }
-        .img-box { height: 180px; width: 100%; position: relative; background: #1e293b; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .save-tag { position: absolute; top: 1rem; left: 1rem; background: var(--green); color: white; font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 4px; }
-        .card-content { padding: 20px; }
-        .card-content h3 { margin: 0; font-size: 1.5rem; font-style: italic; text-transform: uppercase; }
-        .card-content p { color: var(--gray); font-size: 0.7rem; font-weight: bold; text-transform: uppercase; margin: 5px 0 20px; }
-        .btn { display: block; text-align: center; background: var(--blue); color: white; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; }
+        body { background-color: #020617; color: white; font-family: sans-serif; }
+        .deal-card { background: linear-gradient(145deg, #0f172a, #020617); border: 1px solid rgba(59, 130, 246, 0.1); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: column; height: 380px; }
+        .img-box { height: 180px; width: 100%; position: relative; overflow: hidden; background: #1e293b; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .premium-blur { filter: blur(12px); opacity: 0.3; }
+        .save-tag { position: absolute; top: 1rem; left: 1rem; background: #22c55e; color: white; font-size: 8px; font-weight: 900; padding: 3px 8px; border-radius: 4px; z-index: 10; }
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; opacity: 0.5; }
     </style>
 </head>
-<body>
-    <nav>
-        <div class="logo">JFC.</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="europe.html">Europe</a>
-            <a href="asia.html" style="color: var(--blue)">Asia</a>
-            <a href="world.html">World</a>
+<body class="p-6">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 mb-8 border-b border-white/5">
+        <div class="flex items-center gap-12">
+            <div class="text-3xl font-black italic tracking-tighter text-blue-500">JFC.</div>
+            <div class="flex gap-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="europe.html" class="nav-link">Europe</a>
+                <a href="asia.html" class="nav-link opacity-100 text-blue-400">Asia</a>
+                <a href="world.html" class="nav-link">World</a>
+            </div>
         </div>
+        <button id="auth-btn" onclick="login()" class="text-[10px] font-bold uppercase border border-white/30 px-6 py-2 rounded-full">Login with Google</button>
     </nav>
-
-    <div class="container">
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €320</span><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=500"></div>
-            <div class="card-content"><h3>Tokyo</h3><p>KLM Direct</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €250</span><img src="https://images.unsplash.com/photo-1504609770332-c60312386902?w=500"></div>
-            <div class="card-content"><h3>Bangkok</h3><p>Thai Airways</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €410</span><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500"></div>
-            <div class="card-content"><h3>Bali</h3><p>Qatar Airways</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €290</span><img src="https://images.unsplash.com/photo-1525625232214-933333320c24?w=500"></div>
-            <div class="card-content"><h3>Singapore</h3><p>Singapore Airlines</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €280</span><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500"></div>
-            <div class="card-content"><h3>Seoul</h3><p>Korean Air</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €300</span><img src="https://images.unsplash.com/photo-1589394815804-964ed962eb33?w=500"></div>
-            <div class="card-content"><h3>Phuket</h3><p>Emirates</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €240</span><img src="https://images.unsplash.com/photo-1552912019-ad3002599444?w=500"></div>
-            <div class="card-content"><h3>Taipei</h3><p>EVA Air</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-        <div class="card">
-            <div class="img-box"><span class="save-tag">SAVE €370</span><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=500"></div>
-            <div class="card-content"><h3>Manila</h3><p>Philippine Airlines</p><a href="#" class="btn">Unlock for €1</a></div>
-        </div>
-    </div>
+    <div id="grid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+    <script>
+        const cities = [
+            {name: 'Chengdu', save: '450', price: '389', info: 'Panda Base Special', img: 'https://images.unsplash.com/photo-1529921818464-7bc00f2ef51a?w=600'},
+            {name: 'Bangkok', save: '310', price: '420', info: 'EVA Air Direct', img: 'https://images.unsplash.com/photo-1504214208698-ea1919a219e0?w=600'},
+            {name: 'Singapore', save: '390', price: '585', info: 'Singapore Airlines', img: 'https://images.unsplash.com/photo-1525625232214-933333320c24?w=600'},
+            {name: 'Hanoi', save: '340', price: '465', info: 'Vietnam Airlines', img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600'},
+            {name: 'Tokyo', save: '520', price: '545', info: 'KLM / JAL Direct', img: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600'},
+            {name: 'Bali', save: '380', price: '499', info: 'Qatar Airways', img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600'},
+            {name: 'Hong Kong', save: '440', price: '510', info: 'Cathay Pacific', img: 'https://images.unsplash.com/photo-1506158669146-619067262a00?w=600'},
+            {name: 'Seoul', save: '415', price: '512', info: 'Korean Air', img: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600'}
+        ];
+        const grid = document.getElementById('grid');
+        cities.forEach(city => {
+            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="premium-blur price-text text-2xl font-black italic">€${city.price}</div><button onclick="handleAction('${city.name}')" class="unlock-btn bg-blue-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Unlock for €1</button></div></div></div>`;
+        });
+        function handleAction(cityName) { if (event.target.innerText.includes('BOOK')) { location.href = `deal-details.html?city=${cityName}`; } else { window.open('https://buy.stripe.com/test_7sY4gs9dMdPP31vfsi3oA02', '_blank'); } }
+        const _supabase = supabase.createClient('https://wtyftavgeedogadlqpzr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0eWZ0YXZnZWVkb2dhZGxxcHpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzgxNTc2OTIsImV4cCI6MjA1MzczMzY5Mn0.qW7q-vL-YV0xU7r-XW8X-Z1X-YV0xU7r-XW8X-Z1X-YV0xU7r-XW8X-Z1X-Y');
+        async function login() { await _supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.href } }); }
+        async function checkUser() {
+            const { data: { user } } = await _supabase.auth.getUser();
+            if (user) {
+                document.querySelectorAll('.premium-blur').forEach(el => { el.style.filter = 'none'; el.style.opacity = '1'; });
+                document.querySelectorAll('.unlock-btn').forEach(btn => { btn.innerText = 'Book Now'; btn.classList.replace('bg-blue-600', 'bg-green-600'); });
+                document.getElementById('auth-btn').innerText = "HI, " + user.user_metadata.full_name.split(' ')[0].toUpperCase();
+            }
+        }
+        checkUser();
+    </script>
 </body>
 </html>
