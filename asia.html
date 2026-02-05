@@ -2,131 +2,36 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azië - Jerome's Flight Club</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #050a14;
-            color: white;
-        }
-        header {
-            background-color: #0a1221;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1e2a3a;
-        }
-        header h1 { margin: 0; font-size: 1.5rem; color: #3b82f6; }
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        nav a:hover { color: white; }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-        }
-        .card {
-            background: #0f172a;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #1e293b;
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .card-content { padding: 20px; }
-        .card-tag {
-            background: #22c55e;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .card h2 { margin: 0 0 5px 0; font-size: 1.25rem; text-transform: uppercase; }
-        .card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
-        .btn-unlock {
-            display: block;
-            text-align: center;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
+        body { font-family: sans-serif; background-color: #050a14; color: white; margin: 0; }
+        header { background: #0a1221; padding: 20px; text-align: center; border-bottom: 1px solid #1e2a3a; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: #0f172a; border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        .btn { display: block; background: #2563eb; color: white; text-align: center; padding: 10px; text-decoration: none; border-radius: 5px; }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>JFC.</h1>
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="europe.html">EUROPE</a>
-            <a href="asia.html" style="color: #3b82f6;">ASIA</a>
-            <a href="world.html">WORLD</a>
-        </nav>
-    </header>
-
+    <header><h1>JFC ASIA.</h1><nav><a href="index.html" style="color:white;">HOME</a></nav></header>
     <div class="container">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80" alt="Tokyo">
-            <div class="card-content">
-                <span class="card-tag">SAVE €320</span>
-                <h2>TOKYO</h2>
-                <p>KLM DIRECT</p>
-                <a href="#" class="btn-unlock">UNLOCK FOR €1</a>
-            </div>
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600" alt="Tokyo">
+            <div class="card-content"><h2>TOKYO</h2><p>KLM DIRECT</p><a href="#" class="btn">UNLOCK €1</a></div>
         </div>
-
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1504214208698-ea1919a219e0?auto=format&fit=crop&w=600&q=80" alt="Bangkok">
-            <div class="card-content">
-                <span class="card-tag">SAVE €250</span>
-                <h2>BANGKOK</h2>
-                <p>THAI AIRWAYS</p>
-                <a href="#" class="btn-unlock">UNLOCK FOR €1</a>
-            </div>
+            <img src="https://images.unsplash.com/photo-1504214208698-ea1919a219e0?w=600" alt="Bangkok">
+            <div class="card-content"><h2>BANGKOK</h2><p>THAI AIRWAYS</p><a href="#" class="btn">UNLOCK €1</a></div>
         </div>
-
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Bali">
-            <div class="card-content">
-                <span class="card-tag">SAVE €410</span>
-                <h2>BALI</h2>
-                <p>QATAR AIRWAYS</p>
-                <a href="#" class="btn-unlock">UNLOCK FOR €1</a>
-            </div>
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600" alt="Bali">
+            <div class="card-content"><h2>BALI</h2><p>QATAR AIRWAYS</p><a href="#" class="btn">UNLOCK €1</a></div>
         </div>
-
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1552912853-843809bc12c2?auto=format&fit=crop&w=600&q=80" alt="Taipei">
-            <div class="card-content">
-                <span class="card-tag">SAVE €290</span>
-                <h2>TAIPEI</h2>
-                <p>EVA AIR</p>
-                <a href="#" class="btn-unlock">UNLOCK FOR €1</a>
-            </div>
+            <img src="https://images.unsplash.com/photo-1552912853-843809bc12c2?w=600" alt="Taipei">
+            <div class="card-content"><h2>TAIPEI</h2><p>EVA AIR</p><a href="#" class="btn">UNLOCK €1</a></div>
         </div>
     </div>
-
 </body>
 </html>
