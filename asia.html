@@ -2,36 +2,159 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azië - Jerome's Flight Club</title>
     <style>
-        body { font-family: sans-serif; background-color: #050a14; color: white; margin: 0; }
-        header { background: #0a1221; padding: 20px; text-align: center; border-bottom: 1px solid #1e2a3a; }
-        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
-        .card { background: #0f172a; border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 15px; }
-        .btn { display: block; background: #2563eb; color: white; text-align: center; padding: 10px; text-decoration: none; border-radius: 5px; }
-    </style>
-</head>
-<body>
-    <header><h1>JFC ASIA.</h1><nav><a href="index.html" style="color:white;">HOME</a></nav></header>
-    <div class="container">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600" alt="Tokyo">
-            <div class="card-content"><h2>TOKYO</h2><p>KLM DIRECT</p><a href="#" class="btn">UNLOCK €1</a></div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1504214208698-ea1919a219e0?w=600" alt="Bangkok">
-            <div class="card-content"><h2>BANGKOK</h2><p>THAI AIRWAYS</p><a href="#" class="btn">UNLOCK €1</a></div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600" alt="Bali">
-            <div class="card-content"><h2>BALI</h2><p>QATAR AIRWAYS</p><a href="#" class="btn">UNLOCK €1</a></div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1552912853-843809bc12c2?w=600" alt="Taipei">
-            <div class="card-content"><h2>TAIPEI</h2><p>EVA AIR</p><a href="#" class="btn">UNLOCK €1</a></div>
-        </div>
-    </div>
-</body>
-</html>
+        :root {
+            --bg-dark: #050a14;
+            --card-bg: #0f172a;
+            --accent-blue: #3b82f6;
+            --text-gray: #94a3b8;
+            --success-green: #22c55e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #0a1221;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e2a3a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover, nav a.active {
+            color: white;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #0a1221, var(--bg-dark));
+        }
+
+        .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-tag {
+            background: var(--success-green);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .card .airline {
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .btn-unlock {
+            display: block;
+            text-align: center;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-unlock:hover {
+            background: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            padding
