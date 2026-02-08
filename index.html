@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Welkom</title>
+</head>
+<body>
+
+<h1>Welkom 👋</h1>
+<p>Log in met Google</p>
+
+<div id="g_id_onload"
+     data-client_id="594409400388-m4j3gfpfsko828ltsjgjk3gc834ct03a.apps.googleusercontent.com"
+     data-callback="onLogin">
+</div>
+
+<div class="g_id_signin"></div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script>
+function onLogin(response) {
+  const data = JSON.parse(atob(response.credential.split('.')[1]));
+  localStorage.setItem("name", data.name);
+  localStorage.setItem("picture", data.picture);
+  window.location.href = "/dashboard.html";
+}
+</script>
+
+</body>
+</html>
