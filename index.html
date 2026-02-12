@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JFC | Home</title>
@@ -14,44 +14,15 @@
         <div class="text-3xl font-black italic text-blue-500">JFC.</div>
         <div class="flex gap-8 uppercase font-bold text-[10px]">
             <a href="index.html" class="text-blue-400">Home</a>
-            <a href="europe.html" class="opacity-50 hover:opacity-100">Europe</a>
-            <a href="asia.html" class="opacity-50 hover:opacity-100">Asia</a>
+            <a href="europe.html" class="opacity-50 hover:opacity-100 transition">Europe</a>
+            <a href="asia.html" class="opacity-50 hover:opacity-100 transition">Asia</a>
+            <a href="world.html" class="opacity-50 hover:opacity-100 transition">World</a>
         </div>
-        <button id="auth-btn" class="text-[10px] font-bold border border-white/30 px-6 py-2 rounded-full uppercase">Laden...</button>
     </nav>
 
     <header class="max-w-5xl mx-auto text-center pt-32 px-6">
         <h1 class="text-6xl md:text-8xl font-black italic uppercase mb-8">Fly Premium.<br><span class="text-blue-500">Pay Economy.</span></h1>
-        <button id="main-cta" class="bg-white text-black px-10 py-5 rounded-2xl font-black uppercase">Login met Google</button>
+        <button onclick="window.location.href='europe.html'" class="bg-white text-black px-10 py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition">Bekijk Deals</button>
     </header>
-
-    <script type="module">
-        import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-        const supabase = createClient("https://wtyftavgeedogadlqpzr.supabase.co", "sb_publishable_tcIuKnh98v9Pf9a8-3PeIQ_-KkfJNPz");
-
-        async function check() {
-            const { data: { session } } = await supabase.auth.getSession();
-            const btn = document.getElementById("auth-btn");
-            const cta = document.getElementById("main-cta");
-
-            if (session) {
-                btn.textContent = "LOG UIT";
-                btn.onclick = async () => { await supabase.auth.signOut(); window.location.reload(); };
-                cta.textContent = "BEKIJK DEALS";
-                cta.onclick = () => { window.location.href = "europe.html"; };
-            } else {
-                btn.textContent = "LOGIN";
-                const login = async () => { 
-                    await supabase.auth.signInWithOAuth({ 
-                        provider: "google", 
-                        options: { redirectTo: "https://jfc-website.pages.dev/index.html" } 
-                    }); 
-                };
-                btn.onclick = login;
-                cta.onclick = login;
-            }
-        }
-        check();
-    </script>
 </body>
 </html>
