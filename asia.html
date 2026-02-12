@@ -6,8 +6,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #020617; color: white; font-family: sans-serif; }
-        .deal-card { background: linear-gradient(145deg, #0f172a, #020617); border: 1px solid rgba(59, 130, 246, 0.1); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: column; height: 380px; cursor: pointer; transition: transform 0.2s; }
-        .deal-card:hover { transform: scale(1.02); border-color: rgba(59, 130, 246, 0.4); }
+        .deal-card { background: linear-gradient(145deg, #0f172a, #020617); border: 1px solid rgba(59, 130, 246, 0.1); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: column; height: 380px; transition: transform 0.2s, border-color 0.2s; cursor: pointer; }
+        .deal-card:hover { transform: scale(1.02); border-color: rgba(59, 130, 246, 0.5); }
         .img-box { height: 180px; width: 100%; position: relative; overflow: hidden; background: #1e293b; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
         .save-tag { position: absolute; top: 1rem; left: 1rem; background: #22c55e; color: white; font-size: 8px; font-weight: 900; padding: 3px 8px; border-radius: 4px; z-index: 10; }
@@ -17,7 +17,7 @@
 <body class="p-6">
     <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 mb-8 border-b border-white/5">
         <div class="flex items-center gap-12">
-            <div class="text-3xl font-black italic text-blue-500">JFC.</div>
+            <div class="text-3xl font-black italic tracking-tighter text-blue-500">JFC.</div>
             <div class="flex gap-8">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="europe.html" class="nav-link">Europe</a>
@@ -26,7 +26,9 @@
             </div>
         </div>
     </nav>
+
     <div id="grid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
     <script>
         const cities = [
             {name: 'Tokyo', save: '450', price: '520', info: 'KLM Direct', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/800px-Skyscrapers_of_Shinjuku_2009_January.jpg'},
@@ -42,19 +44,26 @@
             {name: 'Beijing', save: '315', price: '499', info: 'Air China', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Great_Wall_of_China_July_2006.JPG/800px-Great_Wall_of_China_July_2006.JPG'},
             {name: 'Phuket', save: '240', price: '560', info: 'TUI Fly', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kata_Beach_Phuket_Thailand.jpg/800px-Kata_Beach_Phuket_Thailand.jpg'}
         ];
+
         const grid = document.getElementById('grid');
         cities.forEach(city => {
             grid.innerHTML += `
-            <div class="deal-card" onclick="window.location.href='city.html?city=${city.name}'">
-                <div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div>
+            <a href="city.html?city=${encodeURIComponent(city.name)}" class="deal-card">
+                <div class="img-box">
+                    <span class="save-tag">SAVE €${city.save}</span>
+                    <img src="${city.img}">
+                </div>
                 <div class="p-5 flex-1 flex flex-col justify-between">
-                    <div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div>
+                    <div>
+                        <h4 class="text-xl font-bold italic uppercase">${city.name}</h4>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p>
+                    </div>
                     <div class="flex justify-between items-end mt-4">
                         <div class="text-2xl font-black italic">€${city.price}</div>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Details</button>
+                        <div class="bg-blue-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Details</div>
                     </div>
                 </div>
-            </div>`;
+            </a>`;
         });
     </script>
 </body>
