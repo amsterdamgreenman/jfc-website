@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JFC | Reset Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-white flex items-center justify-center min-h-screen">
+  <div class="text-center">
+    <h1 id="welcome-msg" class="text-6xl font-black italic mb-4 text-blue-500">JFC.</h1>
+    <p id="info" class="text-slate-400 mb-8">Nieuwe schone start...</p>
+    <button id="auth-btn" class="bg-white text-black px-10 py-5 rounded-2xl font-black uppercase hover:bg-blue-500 hover:text-white transition">
+      Login met Google
+    </button>
+  </div>
 
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+    const supabase = createClient("https://wtyftavgeedogadlqpzr.supabase.co", "sb_publishable_tcIuKnh98v9Pf9a8-3PeIQ_-KkfJNPz");
+
+    const btn = document.getElementById("auth-btn");
+    const msg = document.getElementById("welcome-msg");
+
+    async function checkStatus() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        msg.textContent = "Welkom " + session.user.user_metadata.full_name;
+        btn.textContent = "Log uit";
+        btn.onclick = async () => { await supabase.auth.signOut(); window.location.reload(); };
+      } else {
+        btn.onclick = async () => {
+          await supabase.auth.signInWithOAuth({
+            provider: "google",
+            options: { redirectTo: "https://jfc-website.pages.dev/index.html" }
+          });
+        };
+      }
+    }
+    checkStatus();
+  </script>
+</body>
+</html>
