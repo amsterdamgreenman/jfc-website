@@ -25,30 +25,25 @@
             </div>
         </div>
     </nav>
-
     <div id="grid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
-
     <script>
         const cities = [
             {name: 'Madrid', save: '95', price: '90', info: 'Ryanair vanaf Brussel', img: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600'},
             {name: 'London', save: '110', price: '87', info: 'British Airways', img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600'},
             {name: 'Paris', save: '120', price: '85', info: 'Air France', img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600'},
-            {name: 'Rome', save: '135', price: '99', info: 'ITA Airways', img: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600'}
+            {name: 'Stockholm', save: '90', price: '92', info: 'SAS Scandinavia', img: 'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?w=600'},
+            {name: 'Prague', save: '135', price: '69', info: 'Ryanair', img: 'https://images.unsplash.com/photo-1517736996303-4eec4a66bb17?w=600'},
+            {name: 'Barcelona', save: '140', price: '55', info: 'Vueling', img: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=600'},
+            {name: 'Athens', save: '115', price: '79', info: 'Transavia', img: 'https://images.unsplash.com/photo-1503152394-c571994fd383?w=600'},
+            {name: 'Berlin', save: '80', price: '74', info: 'EasyJet', img: 'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600'},
+            {name: 'Rome', save: '135', price: '99', info: 'ITA Airways', img: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600'},
+            {name: 'Malaga', save: '105', price: '68', info: 'Ryanair', img: 'https://images.unsplash.com/photo-1570698473651-b2de99bae12f?w=600'},
+            {name: 'Bucharest', save: '160', price: '42', info: 'Wizz Air', img: 'https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=600'},
+            {name: 'Warsaw', save: '85', price: '49', info: 'LOT Polish', img: 'https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=600'}
         ];
-
         const grid = document.getElementById('grid');
         cities.forEach(city => {
-            grid.innerHTML += `
-            <div class="deal-card">
-                <div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div>
-                <div class="p-5 flex-1 flex flex-col justify-between">
-                    <div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div>
-                    <div class="flex justify-between items-end mt-4">
-                        <div class="text-2xl font-black italic">€${city.price}</div>
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Book Now</button>
-                    </div>
-                </div>
-            </div>`;
+            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="text-2xl font-black italic">€${city.price}</div><button class="bg-green-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Book Now</button></div></div></div>`;
         });
     </script>
 </body>
