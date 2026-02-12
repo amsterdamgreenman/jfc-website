@@ -28,18 +28,22 @@
     <div id="grid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
     <script>
         const cities = [
-            {name: 'Tokyo', save: '450', price: '520', info: 'KLM Direct', img: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600'},
+            {name: 'Tokyo', save: '450', price: '520', info: 'KLM Direct', img: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600'},
             {name: 'Bangkok', save: '320', price: '480', info: 'Thai Airways', img: 'https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=600'},
             {name: 'Bali', save: '280', price: '599', info: 'Qatar Airways', img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600'},
             {name: 'Seoul', save: '390', price: '495', info: 'Korean Air', img: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600'},
             {name: 'Singapore', save: '310', price: '510', info: 'Singapore Airlines', img: 'https://images.unsplash.com/photo-1525625232758-ad38767214ae?w=600'},
             {name: 'Hanoi', save: '250', price: '460', info: 'Vietnam Airlines', img: 'https://images.unsplash.com/photo-1555944011-081977717904?w=600'},
             {name: 'Dubai', save: '190', price: '380', info: 'Emirates', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600'},
-            {name: 'Manila', save: '270', price: '540', info: 'Philippine Airlines', img: 'https://images.unsplash.com/photo-1540331547168-8b63109225b7?w=600'}
+            {name: 'Manila', save: '270', price: '540', info: 'Philippine Airlines', img: 'https://images.unsplash.com/photo-1540331547168-8b63109225b7?w=600'},
+            {name: 'Hong Kong', save: '330', price: '525', info: 'Cathay Pacific', img: 'https://images.unsplash.com/photo-1507450491953-2bd13481284d?w=600'},
+            {name: 'Kuala Lumpur', save: '290', price: '475', info: 'Malaysia Airlines', img: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a594?w=600'},
+            {name: 'Beijing', save: '315', price: '499', info: 'Air China', img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600'},
+            {name: 'Phuket', save: '240', price: '560', info: 'TUI Fly', img: 'https://images.unsplash.com/photo-1589394815804-964ed9be2eb3?w=600'}
         ];
         const grid = document.getElementById('grid');
         cities.forEach(city => {
-            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="text-2xl font-black italic">€${city.price}</div><button class="bg-green-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Book Now</button></div></div></div>`;
+            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="text-2xl font-black italic">€${city.price}</div><button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Book Now</button></div></div></div>`;
         });
     </script>
 </body>
