@@ -43,7 +43,7 @@
         ];
         const grid = document.getElementById('grid');
         cities.forEach(city => {
-            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="text-2xl font-black italic">€${city.price}</div><button class="bg-green-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Book Now</button></div></div></div>`;
+            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="text-2xl font-black italic">€${city.price}</div><button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Book Now</button></div></div></div>`;
         });
     </script>
 </body>
