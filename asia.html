@@ -28,18 +28,18 @@
     <div id="grid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
     <script>
         const cities = [
-            {name: 'Tokyo', save: '450', price: '520', info: 'KLM Direct', img: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600'},
-            {name: 'Bangkok', save: '320', price: '480', info: 'Thai Airways', img: 'https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=600'},
-            {name: 'Bali', save: '280', price: '599', info: 'Qatar Airways', img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600'},
-            {name: 'Seoul', save: '390', price: '495', info: 'Korean Air', img: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600'},
-            {name: 'Singapore', save: '310', price: '510', info: 'Singapore Airlines', img: 'https://images.pexels.com/photos/3052361/pexels-photo-3052361.jpeg?auto=compress&cs=tinysrgb&w=600'},
-            {name: 'Hanoi', save: '250', price: '460', info: 'Vietnam Airlines', img: 'https://images.pexels.com/photos/15729792/pexels-photo-15729792/free-photo-of-stadsgezicht-stad-straat-gebouw.jpeg?auto=compress&cs=tinysrgb&w=600'},
-            {name: 'Dubai', save: '190', price: '380', info: 'Emirates', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600'},
-            {name: 'Manila', save: '270', price: '540', info: 'Philippine Airlines', img: 'https://images.unsplash.com/photo-1540331547168-8b63109225b7?w=600'},
-            {name: 'Hong Kong', save: '330', price: '525', info: 'Cathay Pacific', img: 'https://images.pexels.com/photos/2101031/pexels-photo-2101031.jpeg?auto=compress&cs=tinysrgb&w=600'},
-            {name: 'Kuala Lumpur', save: '290', price: '475', info: 'Malaysia Airlines', img: 'https://images.pexels.com/photos/1518500/pexels-photo-1518500.jpeg?auto=compress&cs=tinysrgb&w=600'},
-            {name: 'Beijing', save: '315', price: '499', info: 'Air China', img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600'},
-            {name: 'Phuket', save: '240', price: '560', info: 'TUI Fly', img: 'https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=600'}
+            {name: 'Tokyo', save: '450', price: '520', info: 'KLM Direct', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/800px-Skyscrapers_of_Shinjuku_2009_January.jpg'},
+            {name: 'Bangkok', save: '320', price: '480', info: 'Thai Airways', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Wat_Arun_Bangkok_Thailand.jpg/800px-Wat_Arun_Bangkok_Thailand.jpg'},
+            {name: 'Bali', save: '280', price: '599', info: 'Qatar Airways', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Pura_Ulun_Danu_Bratan_Bali.jpg/800px-Pura_Ulun_Danu_Bratan_Bali.jpg'},
+            {name: 'Seoul', save: '390', price: '495', info: 'Korean Air', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Seoul_city_panorama.jpg/800px-Seoul_city_panorama.jpg'},
+            {name: 'Singapore', save: '310', price: '510', info: 'Singapore Airlines', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Singapore_Skyline_from_Marina_Bay_Sands_Skypark.jpg/800px-Singapore_Skyline_from_Marina_Bay_Sands_Skypark.jpg'},
+            {name: 'Hanoi', save: '250', price: '460', info: 'Vietnam Airlines', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ho_Chi_Minh_Mausoleum_Hanoi_Vietnam.jpg/800px-Ho_Chi_Minh_Mausoleum_Hanoi_Vietnam.jpg'},
+            {name: 'Dubai', save: '190', price: '380', info: 'Emirates', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dubai_Skyline_After_Sunset_%28136203531%29.jpeg/800px-Dubai_Skyline_After_Sunset_%28136203531%29.jpeg'},
+            {name: 'Manila', save: '270', price: '540', info: 'Philippine Airlines', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Manila_skyline_2019.jpg/800px-Manila_skyline_2019.jpg'},
+            {name: 'Hong Kong', save: '330', price: '525', info: 'Cathay Pacific', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg'},
+            {name: 'Kuala Lumpur', save: '290', price: '475', info: 'Malaysia Airlines', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Petronas_Twin_Towers.jpg/800px-Petronas_Twin_Towers.jpg'},
+            {name: 'Beijing', save: '315', price: '499', info: 'Air China', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Great_Wall_of_China_July_2006.JPG/800px-Great_Wall_of_China_July_2006.JPG'},
+            {name: 'Phuket', save: '240', price: '560', info: 'TUI Fly', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kata_Beach_Phuket_Thailand.jpg/800px-Kata_Beach_Phuket_Thailand.jpg'}
         ];
         const grid = document.getElementById('grid');
         cities.forEach(city => {
