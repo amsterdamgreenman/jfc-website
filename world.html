@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World | JFC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: white; font-family: sans-serif; }
+        .deal-card { background: linear-gradient(145deg, #0f172a, #020617); border: 1px solid rgba(59, 130, 246, 0.1); border-radius: 1.5rem; overflow: hidden; display: flex; flex-direction: column; height: 380px; }
+        .img-box { height: 180px; width: 100%; position: relative; overflow: hidden; background: #1e293b; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .premium-blur { filter: blur(12px); opacity: 0.3; transition: 0.5s; }
+        .save-tag { position: absolute; top: 1rem; left: 1rem; background: #22c55e; color: white; font-size: 8px; font-weight: 900; padding: 3px 8px; border-radius: 4px; z-index: 10; }
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; opacity: 0.5; }
+    </style>
+</head>
+<body class="p-6">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 mb-8 border-b border-white/5">
+        <div class="flex items-center gap-12">
+            <div class="text-3xl font-black italic tracking-tighter text-blue-500">JFC.</div>
+            <div class="flex gap-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="europe.html" class="nav-link">Europe</a>
+                <a href="asia.html" class="nav-link">Asia</a>
+                <a href="world.html" class="nav-link opacity-100 text-blue-400">World</a>
+            </div>
+        </div>
+        <button id="auth-btn" class="text-[10px] font-bold uppercase border border-white/30 px-6 py-2 rounded-full hover:bg-white/10 transition">Laden...</button>
+    </nav>
+
+    <div id="grid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
+    <script type="module">
+        import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+        
+        const supabase = createClient(
+            "https://wtyftavgeedogadlqpzr.supabase.co", 
+            "sb_publishable_tcIuKnh98v9Pf9a8-3PeIQ_-KkfJNPz"
+        );
+
+        const cities = [
+            {name: 'New York', save: '510', price: '380', info: 'Lufthansa', img: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600'},
+            {name: 'Cape Town', save: '420', price: '540', info: 'KLM', img: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600'},
+            {name: 'Sydney', save: '650', price: '890', info: 'Emirates', img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=600'},
+            {name: 'Rio de Janeiro', save: '380', price: '620', info: 'TAP Air Portugal', img: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=600'}
+        ];
+
+        const grid = document.getElementById('grid');
+        const authBtn = document.getElementById('auth-btn');
+
+        cities.forEach(city => {
+            grid.innerHTML += `<div class="deal-card"><div class="img-box"><span class="save-tag">SAVE €${city.save}</span><img src="${city.img}"></div><div class="p-5 flex-1 flex flex-col justify-between"><div><h4 class="text-xl font-bold italic uppercase">${city.name}</h4><p class="text-[10px] text-slate-500 uppercase font-bold">${city.info}</p></div><div class="flex justify-between items-end mt-4"><div class="premium-blur price-text text-2xl font-black italic">€${city.price}</div><button onclick="handleAction('${city.name}')" class="unlock-btn bg-blue-600 text-white px-4 py-2 rounded-lg font-black text-[9px] uppercase">Unlock for €1</button></div></div></div>`;
+        });
+
+        window.handleAction = function(cityName) {
+            if (event.target.innerText.includes('BOOK')) {
+                alert('Boekingslink voor ' + cityName);
+            } else {
+                window.open('https://buy.stripe.com/test_7sY4gs9dMdPP31vfsi3oA02', '_blank');
+            }
+        };
+
+        async function checkUser() {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                document.querySelectorAll('.premium-blur').forEach(el => { el.style.filter = 'none'; el.style.opacity = '1'; });
+                document.querySelectorAll('.unlock-btn').forEach(btn => { btn.innerText = 'Book Now'; btn.classList.replace('bg-blue-600', 'bg-green-600'); });
+                authBtn.innerText = "LOG UIT";
+                authBtn.onclick = async () => { await supabase.auth.signOut(); window.location.reload(); };
+            } else {
+                authBtn.innerText = "LOGIN MET GOOGLE";
+                authBtn.onclick = async () => {
+                    await supabase.auth.signInWithOAuth({
+                        provider: 'google',
+                        options: { redirectTo: "https://jfc-website.pages.dev/world.html" }
+                    });
+                };
+            }
+        }
+        checkUser();
+    </script>
+</body>
+</html>
