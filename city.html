@@ -2,48 +2,70 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stad Details | JFC</title>
+    <title>Bestemming Details | JFC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background: #020617; color: white; font-family: sans-serif; }
-        .hero-blur { background: linear-gradient(to bottom, rgba(2,6,23,0), #020617); }
+        .hero-blur { background: linear-gradient(to bottom, rgba(2,6,23,0), #020617 100%); }
     </style>
 </head>
 <body>
-    <nav class="p-6 border-b border-white/5 flex justify-between items-center">
+    <nav class="p-6 border-b border-white/5 flex justify-between items-center bg-[#020617]">
         <div class="text-3xl font-black italic text-blue-500">JFC.</div>
         <a href="javascript:history.back()" class="text-[10px] font-bold uppercase opacity-50 hover:opacity-100">← Terug naar deals</a>
     </nav>
 
     <div id="content">
-        </div>
+        <div class="flex items-center justify-center h-64"><p class="animate-pulse">Details laden...</p></div>
+    </div>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const cityName = urlParams.get('city');
 
-        // Voorbeeld data - dit kun je later uitbreiden voor elke stad
-        const cityData = {
-            'Madrid': { desc: 'Madrid is de bruisende hoofdstad van Spanje, bekend om zijn kunstmusea en heerlijke tapas.', extraImg: 'https://images.unsplash.com/photo-1543783232-f383084992b3?w=800' },
-            'Tokyo': { desc: 'Een futuristische metropool waar traditie en hypermoderne technologie samenkomen.', extraImg: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800' },
-            'New York': { desc: 'The city that never sleeps. Van Times Square tot Central Park, overal is actie.', extraImg: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800' }
-            // Voeg hier meer steden toe...
+        // Uitgebreide info database
+        const cityInfo = {
+            'Madrid': 'Madrid is de bruisende hoofdstad van Spanje. Geniet van de wereldberoemde musea zoals het Prado en de gezellige tapasbars in de wijk La Latina.',
+            'Tokyo': 'Een stad waar eeuwenoude tempels zij aan zij staan met neonverlichte wolkenkrabbers. Tokyo is een zintuiglijke ervaring die je nooit zult vergeten.',
+            'New York': 'The Big Apple. Wandel door Central Park, bekijk een Broadway-show of geniet van het uitzicht vanaf de top van de Empire State Building.',
+            'Bangkok': 'Ontdek de prachtige tempels, de drijvende markten en het legendarische streetfood van de Thaise hoofdstad.'
         };
 
-        const data = cityData[cityName] || { desc: 'Meer informatie over deze deal volgt binnenkort!', extraImg: 'https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?w=800' };
+        const description = cityInfo[cityName] || `Geweldig nieuws! We hebben een exclusieve deal gevonden naar ${cityName}. Deze bestemming biedt een unieke mix van cultuur, avontuur en ontspanning. Boek nu voordat de prijzen weer stijgen!`;
+
+        // We gebruiken een standaard mooie travel-foto als achtergrond
+        const bgImg = "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?w=1200";
 
         document.getElementById('content').innerHTML = `
-            <div class="relative h-[50vh] overflow-hidden">
-                <img src="${data.extraImg}" class="w-full h-full object-cover opacity-40">
+            <div class="relative h-[60vh] overflow-hidden">
+                <img src="${bgImg}" class="w-full h-full object-cover opacity-60">
                 <div class="absolute inset-0 hero-blur"></div>
-                <div class="absolute bottom-10 left-10">
-                    <h1 class="text-7xl font-black italic uppercase">${cityName}</h1>
+                <div class="absolute bottom-12 left-12 right-12">
+                    <span class="text-blue-500 font-bold uppercase tracking-widest text-sm mb-2 block">Bestemming van de dag</span>
+                    <h1 class="text-6xl md:text-8xl font-black italic uppercase leading-none">${cityName}</h1>
                 </div>
             </div>
-            <div class="max-w-4xl px-10 py-20">
-                <h2 class="text-2xl font-bold mb-6 italic text-blue-400 uppercase">Over deze bestemming</h2>
-                <p class="text-xl text-slate-300 leading-relaxed mb-10">${data.desc}</p>
-                <button class="bg-blue-600 px-8 py-4 rounded-xl font-black uppercase">Boek deze deal nu</button>
+            
+            <div class="max-w-4xl mx-auto px-12 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="md:col-span-2">
+                        <h2 class="text-2xl font-bold mb-6 italic text-blue-400 uppercase tracking-tighter">Waarom ${cityName}?</h2>
+                        <p class="text-xl text-slate-300 leading-relaxed mb-8">${description}</p>
+                        
+                        <div class="bg-blue-900/20 border border-blue-500/20 p-6 rounded-2xl mb-10">
+                            <p class="text-sm font-bold uppercase mb-2">Deal Status</p>
+                            <p class="text-green-400 font-bold">✓ Beschikbaar op dit moment</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-slate-900 p-8 rounded-3xl border border-white/5 shadow-2xl">
+                            <p class="text-slate-400 uppercase text-[10px] font-bold mb-1">Vanaf prijs</p>
+                            <p class="text-4xl font-black italic mb-6 uppercase">Exclusief</p>
+                            <button onclick="alert('Redirect naar boekingspagina...')" class="w-full bg-white text-black py-4 rounded-xl font-black uppercase text-sm hover:bg-blue-500 hover:text-white transition-all">Boek Nu</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
     </script>
